@@ -121,7 +121,7 @@ class MasterBenchmark:
         # Run the benchmark
         start_time = time.time()
         try:
-            result = subprocess.run(cmd, capture_output=True, text=True, timeout=1200)
+            result = subprocess.run(cmd, capture_output=True, text=True, timeout=120000)
             end_time = time.time()
             
             if result.returncode == 0:
