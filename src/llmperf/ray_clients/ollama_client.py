@@ -25,8 +25,12 @@ class OllamaClient(LLMClient):
 
         model = request_config.model
         sampling_params = request_config.sampling_params or {}
-        
-        # Prepare the request body
+
+        # Check if tools are being used - if so, use chat completion API
+        if "tools" in sampling_params or request_config.tools:
+            return self.chat_completion_request(request_config)
+
+        # Prepare the request body for generate API
         body = {
             "model": model,
             "prompt": prompt_text,
@@ -219,6 +223,7 @@ class OllamaClient(LLMClient):
         error_msg = ""
         output_throughput = 0
         total_request_time = 0
+        tool_calls = []  # Track tool calls
 
         metrics = {}
         metrics[common_metrics.ERROR_CODE] = None
@@ -256,11 +261,14 @@ class OllamaClient(LLMClient):
                         raise RuntimeError(data["error"])
                     
                     # Check if this is a message response
-                    if "message" in data and "content" in data["message"]:
-                        content = data["message"]["content"]
-                        if content:
+                    if "message" in data:
+                        message = data["message"]
+
+                        # Handle content
+                        if "content" in message and message["content"]:
+                            content = message["content"]
                             tokens_received += 1
-                            
+
                             if not ttft:
                                 ttft = time.monotonic() - start_time
                                 time_to_next_token.append(ttft)
@@ -270,6 +278,10 @@ class OllamaClient(LLMClient):
                                 )
                             most_recent_received_token_time = time.monotonic()
                             generated_text += content
+
+                        # Handle tool calls
+                        if "tool_calls" in message and message["tool_calls"]:
+                            tool_calls.extend(message["tool_calls"])
                     
                     # Check if generation is done
                     if data.get("done", False):
@@ -283,6 +295,19 @@ class OllamaClient(LLMClient):
             metrics[common_metrics.ERROR_CODE] = error_response_code
             print(f"Warning Or Error: {e}")
             print(error_response_code)
+
+        # If tool calls were made, append them to generated_text in a parseable format
+        if tool_calls:
+            for tool_call in tool_calls:
+                if "function" in tool_call:
+                    func_name = tool_call["function"]["name"]
+                    func_args = tool_call["function"]["arguments"]
+                    # Format as JSON that the validation logic can parse
+                    tool_call_json = json.dumps({
+                        "function": func_name,
+                        "arguments": func_args
+                    })
+                    generated_text += f"\n{tool_call_json}"
 
         # Calculate metrics
         metrics[common_metrics.INTER_TOKEN_LAT] = sum(time_to_next_token)

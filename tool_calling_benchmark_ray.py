@@ -179,7 +179,7 @@ def get_tool_calling_metrics(
             default_sampling_params = {
                 "max_tokens": 300,
                 "temperature": 0.1,
-                "tools": [tool.dict() for tool in available_tools],
+                "tools": [tool.model_dump() for tool in available_tools],
                 "tool_choice": "auto"
             }
             default_sampling_params.update(additional_sampling_params)
@@ -201,7 +201,7 @@ def get_tool_calling_metrics(
                 
                 # Validate tool calls
                 has_valid_calls, extracted_calls, validation_errors = validate_tool_calls(
-                    generated_text, [tool.dict() for tool in available_tools]
+                    generated_text, [tool.model_dump() for tool in available_tools]
                 )
                 
                 # Check if the correct tool was called
