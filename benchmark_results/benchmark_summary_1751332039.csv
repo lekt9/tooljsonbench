@@ -1,2 +1,0 @@
-model,test_type,status,duration_s,success
-gemma3n,performance,failed,8.24,False

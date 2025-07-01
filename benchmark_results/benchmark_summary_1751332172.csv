@@ -1,2 +1,0 @@
-model,test_type,status,duration_s,success
-smollm2:360m,json_accuracy,success,6.37,True

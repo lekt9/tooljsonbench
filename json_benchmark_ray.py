@@ -132,12 +132,20 @@ def get_json_accuracy_metrics(
                 type="json_schema",
                 json_schema=test_case["schema"]
             )
-            
+
+            # For Ollama, pass the schema directly as 'format'
+            # For OpenAI-compatible APIs, use 'response_format'
             default_sampling_params = {
                 "max_tokens": 500,
                 "temperature": 0.1,
-                "response_format": response_format.dict()
             }
+
+            if llm_api == "ollama":
+                # Ollama expects the schema directly in the 'format' parameter
+                default_sampling_params["format"] = test_case["schema"]
+            else:
+                # OpenAI and other APIs use response_format
+                default_sampling_params["response_format"] = response_format.model_dump()
             default_sampling_params.update(additional_sampling_params)
             
             request_config = RequestConfig(

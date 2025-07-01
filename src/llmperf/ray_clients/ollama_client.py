@@ -35,8 +35,21 @@ class OllamaClient(LLMClient):
         }
         
         # Handle structured output parameters
-        if "response_format" in sampling_params:
-            body["format"] = sampling_params["response_format"]
+        if "format" in sampling_params:
+            # Direct format parameter (preferred for Ollama)
+            body["format"] = sampling_params["format"]
+        elif "response_format" in sampling_params:
+            # Legacy response_format parameter - extract the schema
+            response_format = sampling_params["response_format"]
+            if isinstance(response_format, dict):
+                if "json_schema" in response_format:
+                    body["format"] = response_format["json_schema"]
+                elif response_format.get("type") == "json_object":
+                    body["format"] = "json"
+                else:
+                    body["format"] = response_format
+            else:
+                body["format"] = response_format
         
         if "tools" in sampling_params:
             body["tools"] = sampling_params["tools"]
@@ -163,8 +176,21 @@ class OllamaClient(LLMClient):
         }
         
         # Handle structured output parameters
-        if "response_format" in sampling_params:
-            body["format"] = sampling_params["response_format"]
+        if "format" in sampling_params:
+            # Direct format parameter (preferred for Ollama)
+            body["format"] = sampling_params["format"]
+        elif "response_format" in sampling_params:
+            # Legacy response_format parameter - extract the schema
+            response_format = sampling_params["response_format"]
+            if isinstance(response_format, dict):
+                if "json_schema" in response_format:
+                    body["format"] = response_format["json_schema"]
+                elif response_format.get("type") == "json_object":
+                    body["format"] = "json"
+                else:
+                    body["format"] = response_format
+            else:
+                body["format"] = response_format
         
         if "tools" in sampling_params:
             body["tools"] = sampling_params["tools"]

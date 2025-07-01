@@ -1,2 +1,0 @@
-model,test_type,status,duration_s,success
-smollm2:360m,tool_calling,success,31.72,True
