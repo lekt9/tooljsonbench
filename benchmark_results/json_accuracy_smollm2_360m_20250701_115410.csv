@@ -1,0 +1,543 @@
+error_code,error_msg,inter_token_latency_s,ttft_s,end_to_end_latency_s,request_output_throughput_token_per_s,number_total_tokens,number_output_tokens,number_input_tokens,json_valid,json_schema_valid,accuracy_score,validation_errors,test_case,generated_text,parsed_json_id,parsed_json_name,parsed_json_price,parsed_json_category_main,parsed_json_category_sub,model,test_type,timestamp,config_hash,parsed_json_age,parsed_json_email,parsed_json,parsed_json_tags
+,,1.1683715020189993,0.943445652956143,1.171637171995826,58.03844536970892,83,68,15,True,True,1.0,,Generate a JSON object for a product catalog item with nested categories.,"{
+  ""id"": ""{{product_id}}"",
+  ""name"": ""{{product_name}}"",
+  ""price"": 100,
+  ""category"": {
+    ""main"": ""{{category_name}}""
+  ,
+  ""sub"": ""{{sub_category_name}}""
+}
+}",{{product_id}},{{product_name}},100.0,{{category_name}},{{sub_category_name}},smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,,
+,,0.07253545406274498,0.014698999002575874,0.07566033600596711,277.5562614253232,39,21,18,True,True,1.0,,"Generate a JSON object representing a person with name, age, and email fields.","{
+  ""name"": """",
+  ""age"": 30,
+  ""email"": """"
+}",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,30.0,,,
+,,0.06751270283712074,0.012351926998235285,0.07060358201852068,297.4353340102673,39,21,18,True,True,1.0,,"Generate a JSON object representing a person with name, age, and email fields.","{
+  ""name"": """",
+  ""age"": 25,
+  ""email"": """"
+}",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,25.0,,,
+,,0.2279395418590866,0.017379816970787942,0.23106704198289663,285.6313883348421,81,66,15,True,True,1.0,,Generate a JSON object for a product catalog item with nested categories.,"{
+  ""id"": ""{{product_id}}"",
+  ""name"": ""{{product_name}}"",
+  ""price"": 100,
+  ""category"": {
+    ""main"": ""{{main_category}}""
+  ,
+  ""sub"": ""{{sub_category}}""
+}
+}",{{product_id}},{{product_name}},100.0,{{main_category}},{{sub_category}},smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,,
+,,0.33284737687790766,0.014152212999761105,0.33618325501447544,312.32965483506575,125,105,20,True,True,1.0,,"Create a JSON array of 3 books, each with title, author, and year published.","[
+  {
+    ""title"": ""The Great Gatsby"",
+    ""author"": ""F. Scott Fitzgerald"",
+    ""year"": 1925
+  },
+  {
+    ""title"": ""To Kill a Mockingbird"",
+    ""author"": ""Harper Lee"",
+    ""year"": 1960
+  }
+
+,
+
+{
+  ""title"": ""The Hunger Games"",
+  ""author"": ""Suzanne Collins"",
+  ""year"": 2008
+}
+]",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,"[{""title"": ""The Great Gatsby"", ""author"": ""F. Scott Fitzgerald"", ""year"": 1925}, {""title"": ""To Kill a Mockingbird"", ""author"": ""Harper Lee"", ""year"": 1960}, {""title"": ""The Hunger Games"", ""author"": ""Suzanne Collins"", ""year"": 2008}]",
+,,0.070249647134915,0.013806375034619123,0.07332366303307936,286.4014034667911,39,21,18,True,True,1.0,,"Generate a JSON object representing a person with name, age, and email fields.","{
+  ""name"": """",
+  ""age"": 25,
+  ""email"": """"
+}",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,25.0,,,
+,,0.06835718895308673,0.013498006970621645,0.07144343800609931,293.93882190002074,39,21,18,True,True,1.0,,"Generate a JSON object representing a person with name, age, and email fields.","{
+  ""name"": """",
+  ""age"": 25,
+  ""email"": """"
+}",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,25.0,,,
+,,0.06831306836102158,0.012669282034039497,0.0713884939905256,294.16505134268607,39,21,18,True,True,1.0,,"Generate a JSON object representing a person with name, age, and email fields.","{
+  ""name"": """",
+  ""age"": 25,
+  ""email"": """"
+}",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,25.0,,,
+,,0.2884182360721752,0.014167822024319321,0.2915984840365127,291.4967143291344,100,85,15,True,True,1.0,,Generate a JSON object for a product catalog item with nested categories.,"{
+  ""id"": ""{{product_id}}"",
+  ""name"": ""{{product_name}}"",
+  ""price"": 100,
+  ""category"": {
+    ""main"": ""{{main_category}}"",
+    ""sub"": ""{{sub_category}}""
+  },
+  ""tags"": [
+    ""{{tag1}}"",
+    ""{{tag2}}""
+  ]
+}",{{product_id}},{{product_name}},100.0,{{main_category}},{{sub_category}},smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,,"[""{{tag1}}"", ""{{tag2}}""]"
+,,0.06993133708601817,0.013569670962169766,0.07307061896426603,287.3932135468799,39,21,18,True,True,1.0,,"Generate a JSON object representing a person with name, age, and email fields.","{
+  ""name"": """",
+  ""age"": 25,
+  ""email"": """"
+}",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,25.0,,,
+,,0.2753019501687959,0.014210844004992396,0.2784869830356911,305.2207290748176,100,85,15,True,True,1.0,,Generate a JSON object for a product catalog item with nested categories.,"{
+  ""id"": ""{{product_id}}"",
+  ""name"": ""{{product_name}}"",
+  ""price"": 100,
+  ""category"": {
+    ""main"": ""{{main_category}}"",
+    ""sub"": ""{{sub_category}}""
+  },
+  ""tags"": [
+    ""{{tag1}}"",
+    ""{{tag2}}""
+  ]
+}",{{product_id}},{{product_name}},100.0,{{main_category}},{{sub_category}},smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,,"[""{{tag1}}"", ""{{tag2}}""]"
+,,0.2622925865580328,0.01305269100703299,0.26576022297376767,304.78601761255766,96,81,15,True,True,1.0,,Generate a JSON object for a product catalog item with nested categories.,"{
+  ""id"": ""{{product_id}}"",
+  ""name"": ""{{product_name}}"",
+  ""price"": 100,
+  ""category"": {
+    ""main"": ""{{main_category}}"",
+    ""sub"": ""{{sub_category}}""
+  },
+  ""tags"": [
+    ""tag1"",
+    ""tag2""
+  ]
+}",{{product_id}},{{product_name}},100.0,{{main_category}},{{sub_category}},smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,,"[""tag1"", ""tag2""]"
+,,0.23062429000856355,0.014124421984888613,0.23372097202809528,290.94522160307383,83,68,15,True,True,1.0,,Generate a JSON object for a product catalog item with nested categories.,"{
+  ""id"": ""?"",
+  ""name"": ""Product Catalog Item"",
+  ""price"": 100,
+  ""category"": {
+    ""main"": ""Main Category"",
+    ""sub"": ""Sub Category""
+  },
+  ""tags"": [
+    ""tag1"",
+    ""tag2""
+  ]
+}",?,Product Catalog Item,100.0,Main Category,Sub Category,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,,"[""tag1"", ""tag2""]"
+,,0.07139115181053057,0.015050908958073705,0.07452310400549322,281.79180510854803,39,21,18,True,True,1.0,,"Generate a JSON object representing a person with name, age, and email fields.","{
+  ""name"": """",
+  ""age"": 25,
+  ""email"": """"
+}",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,25.0,,,
+,,0.2885722841601819,0.015761292015668005,0.29186908301198855,277.521685969983,96,81,15,True,True,1.0,,Generate a JSON object for a product catalog item with nested categories.,"{
+  ""id"": ""{{product_id}}"",
+  ""name"": ""{{product_name}}"",
+  ""price"": 100,
+  ""category"": {
+    ""main"": ""{{main_category}}"",
+    ""sub"": ""{{sub_category}}""
+  },
+  ""tags"": [
+    ""tag1"",
+    ""tag2""
+  ]
+}",{{product_id}},{{product_name}},100.0,{{main_category}},{{sub_category}},smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,,"[""tag1"", ""tag2""]"
+,,0.34522159112384543,0.014165859029162675,0.35167825099779293,298.56836384419734,125,105,20,True,True,1.0,,"Create a JSON array of 3 books, each with title, author, and year published.","[
+  {
+    ""title"": ""The Great Gatsby"",
+    ""author"": ""F. Scott Fitzgerald"",
+    ""year"": 1925
+  },
+  {
+    ""title"": ""To Kill a Mockingbird"",
+    ""author"": ""Harper Lee"",
+    ""year"": 1960
+  }
+
+,
+
+{
+  ""title"": ""The Hunger Games"",
+  ""author"": ""Suzanne Collins"",
+  ""year"": 2008
+}
+]",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,"[{""title"": ""The Great Gatsby"", ""author"": ""F. Scott Fitzgerald"", ""year"": 1925}, {""title"": ""To Kill a Mockingbird"", ""author"": ""Harper Lee"", ""year"": 1960}, {""title"": ""The Hunger Games"", ""author"": ""Suzanne Collins"", ""year"": 2008}]",
+,,0.06968277599662542,0.013362683006562293,0.0728399470099248,288.3033398848938,39,21,18,True,True,1.0,,"Generate a JSON object representing a person with name, age, and email fields.","{
+  ""name"": """",
+  ""age"": 25,
+  ""email"": """"
+}",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,25.0,,,
+,,0.06857900717295706,0.012699709041044116,0.07169443799648434,292.9097512561542,39,21,18,True,True,1.0,,"Generate a JSON object representing a person with name, age, and email fields.","{
+  ""name"": """",
+  ""age"": 25,
+  ""email"": """"
+}",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,25.0,,,
+,,0.07023477397160605,0.014469619025476277,0.0733999980147928,286.1035499724091,39,21,18,True,True,1.0,,"Generate a JSON object representing a person with name, age, and email fields.","{
+  ""name"": """",
+  ""age"": 25,
+  ""email"": """"
+}",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,25.0,,,
+,,0.06799140782095492,0.013102924975100905,0.07135611400008202,294.29853761341127,39,21,18,True,True,1.0,,"Generate a JSON object representing a person with name, age, and email fields.","{
+  ""name"": """",
+  ""age"": 30,
+  ""email"": """"
+}",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,30.0,,,
+,,0.07056748389732093,0.013746072014328092,0.07374956295825541,284.7474501223372,39,21,18,True,True,1.0,,"Generate a JSON object representing a person with name, age, and email fields.","{
+  ""name"": """",
+  ""age"": 25,
+  ""email"": """"
+}",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,25.0,,,
+,,0.2804688689648174,0.013239291962236166,0.28378849901491776,299.51883284576604,100,85,15,True,True,1.0,,Generate a JSON object for a product catalog item with nested categories.,"{
+  ""id"": ""{{product_id}}"",
+  ""name"": ""{{product_name}}"",
+  ""price"": 100,
+  ""category"": {
+    ""main"": ""{{main_category}}"",
+    ""sub"": ""{{sub_category}}""
+  },
+  ""tags"": [
+    ""{{tag1}}"",
+    ""{{tag2}}""
+  ]
+}",{{product_id}},{{product_name}},100.0,{{main_category}},{{sub_category}},smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,,"[""{{tag1}}"", ""{{tag2}}""]"
+,,0.2782487263320945,0.013120157993398607,0.2814193250378594,302.0403804485173,100,85,15,True,True,1.0,,Generate a JSON object for a product catalog item with nested categories.,"{
+  ""id"": ""{{product_id}}"",
+  ""name"": ""{{product_name}}"",
+  ""price"": 100,
+  ""category"": {
+    ""main"": ""{{main_category}}"",
+    ""sub"": ""{{sub_category}}""
+  },
+  ""tags"": [
+    ""{{tag1}}"",
+    ""{{tag2}}""
+  ]
+}",{{product_id}},{{product_name}},100.0,{{main_category}},{{sub_category}},smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,,"[""{{tag1}}"", ""{{tag2}}""]"
+,,0.07148501189658418,0.015527112002018839,0.07471510500181466,281.0676636202272,39,21,18,True,True,1.0,,"Generate a JSON object representing a person with name, age, and email fields.","{
+  ""name"": """",
+  ""age"": 25,
+  ""email"": """"
+}",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,25.0,,,
+,,0.2948726338217966,0.014135052042547613,0.298066990042571,285.1707932765718,100,85,15,True,True,1.0,,Generate a JSON object for a product catalog item with nested categories.,"{
+  ""id"": ""{{product_id}}"",
+  ""name"": ""{{product_name}}"",
+  ""price"": 100,
+  ""category"": {
+    ""main"": ""{{main_category}}"",
+    ""sub"": ""{{sub_category}}""
+  },
+  ""tags"": [
+    ""{{tag1}}"",
+    ""{{tag2}}""
+  ]
+}",{{product_id}},{{product_name}},100.0,{{main_category}},{{sub_category}},smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,,"[""{{tag1}}"", ""{{tag2}}""]"
+,,0.07835056498879567,0.014020166010595858,0.08179653598926961,256.7345884030451,39,21,18,True,True,1.0,,"Generate a JSON object representing a person with name, age, and email fields.","{
+  ""name"": """",
+  ""age"": 25,
+  ""email"": """"
+}",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,25.0,,,
+,,0.20027630310505629,0.015305575972888619,0.203412466973532,275.302693257669,71,56,15,True,True,1.0,,Generate a JSON object for a product catalog item with nested categories.,"{
+  ""id"": ""{product_id}"",
+  ""name"": ""{product_name}"",
+  ""price"": 100,
+  ""category"": {
+    ""main"": ""{category_name}"",
+    ""sub"": ""{sub_categories}""
+  }
+}",{product_id},{product_name},100.0,{category_name},{sub_categories},smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,,
+,,0.2770374821848236,0.012779669021256268,0.280219706997741,303.33341259501503,100,85,15,True,True,1.0,,Generate a JSON object for a product catalog item with nested categories.,"{
+  ""id"": ""{{product_id}}"",
+  ""name"": ""{{product_name}}"",
+  ""price"": 100,
+  ""category"": {
+    ""main"": ""{{main_category}}"",
+    ""sub"": ""{{sub_category}}""
+  },
+  ""tags"": [
+    ""{{tag1}}"",
+    ""{{tag2}}""
+  ]
+}",{{product_id}},{{product_name}},100.0,{{main_category}},{{sub_category}},smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,,"[""{{tag1}}"", ""{{tag2}}""]"
+,,0.2716848969575949,0.012421688006725162,0.27490647201193497,301.92086564042984,98,83,15,True,True,1.0,,Generate a JSON object for a product catalog item with nested categories.,"{
+  ""id"": ""{{product_id}}"",
+  ""name"": ""{{product_name}}"",
+  ""price"": 100,
+  ""category"": {
+    ""main"": ""{{category_name}}"",
+    ""sub"": ""{{sub_category_name}}""
+  },
+  ""tags"": [
+    ""tag1"",
+    ""tag2""
+  ]
+}",{{product_id}},{{product_name}},100.0,{{category_name}},{{sub_category_name}},smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,,"[""tag1"", ""tag2""]"
+,,0.2811806360259652,0.014703126973472536,0.2845186999766156,298.7501349014532,100,85,15,True,True,1.0,,Generate a JSON object for a product catalog item with nested categories.,"{
+  ""id"": ""{{product_id}}"",
+  ""name"": ""{{product_name}}"",
+  ""price"": 100,
+  ""category"": {
+    ""main"": ""{{main_category}}"",
+    ""sub"": ""{{sub_category}}""
+  },
+  ""tags"": [
+    ""{{tag1}}"",
+    ""{{tag2}}""
+  ]
+}",{{product_id}},{{product_name}},100.0,{{main_category}},{{sub_category}},smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,,"[""{{tag1}}"", ""{{tag2}}""]"
+,,0.3278917787829414,0.01393502700375393,0.33130362996598706,313.9114413285392,124,104,20,True,True,1.0,,"Create a JSON array of 3 books, each with title, author, and year published.","[
+  {
+    ""title"": ""The Great Gatsby"",
+    ""author"": ""F. Scott Fitzgerald"",
+    ""year"": 1925
+  },
+  {
+    ""title"": ""To Kill a Mockingbird"",
+    ""author"": ""Harper Lee"",
+    ""year"": 1960
+  }
+
+,
+{
+  ""title"": ""The Hunger Games"",
+  ""author"": ""Suzanne Collins"",
+  ""year"": 2008
+}
+]",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,"[{""title"": ""The Great Gatsby"", ""author"": ""F. Scott Fitzgerald"", ""year"": 1925}, {""title"": ""To Kill a Mockingbird"", ""author"": ""Harper Lee"", ""year"": 1960}, {""title"": ""The Hunger Games"", ""author"": ""Suzanne Collins"", ""year"": 2008}]",
+,,0.06984102190472186,0.012944126967340708,0.07292516698362306,287.9664300901225,39,21,18,True,True,1.0,,"Generate a JSON object representing a person with name, age, and email fields.","{
+  ""name"": """",
+  ""age"": 25,
+  ""email"": """"
+}",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,25.0,,,
+,,0.3411417898023501,0.013776668987702578,0.3444973769946955,304.7918707422169,125,105,20,True,True,1.0,,"Create a JSON array of 3 books, each with title, author, and year published.","[
+  {
+    ""title"": ""The Great Gatsby"",
+    ""author"": ""F. Scott Fitzgerald"",
+    ""year"": 1925
+  },
+  {
+    ""title"": ""To Kill a Mockingbird"",
+    ""author"": ""Harper Lee"",
+    ""year"": 1960
+  }
+
+,
+
+{
+  ""title"": ""The Hunger Games"",
+  ""author"": ""Suzanne Collins"",
+  ""year"": 2008
+}
+]",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,"[{""title"": ""The Great Gatsby"", ""author"": ""F. Scott Fitzgerald"", ""year"": 1925}, {""title"": ""To Kill a Mockingbird"", ""author"": ""Harper Lee"", ""year"": 1960}, {""title"": ""The Hunger Games"", ""author"": ""Suzanne Collins"", ""year"": 2008}]",
+,,0.27523721696343273,0.014124241017270833,0.2785405190079473,305.1620651197781,100,85,15,True,True,1.0,,Generate a JSON object for a product catalog item with nested categories.,"{
+  ""id"": ""{{product_id}}"",
+  ""name"": ""{{product_name}}"",
+  ""price"": 100,
+  ""category"": {
+    ""main"": ""{{main_category}}"",
+    ""sub"": ""{{sub_category}}""
+  },
+  ""tags"": [
+    ""{{tag1}}"",
+    ""{{tag2}}""
+  ]
+}",{{product_id}},{{product_name}},100.0,{{main_category}},{{sub_category}},smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,,"[""{{tag1}}"", ""{{tag2}}""]"
+,,0.3415038290550001,0.015486937016248703,0.34480346099007875,304.52130526329387,125,105,20,True,True,1.0,,"Create a JSON array of 3 books, each with title, author, and year published.","[
+  {
+    ""title"": ""The Great Gatsby"",
+    ""author"": ""F. Scott Fitzgerald"",
+    ""year"": 1925
+  },
+  {
+    ""title"": ""To Kill a Mockingbird"",
+    ""author"": ""Harper Lee"",
+    ""year"": 1960
+  }
+
+,
+
+{
+  ""title"": ""The Hunger Games"",
+  ""author"": ""Suzanne Collins"",
+  ""year"": 2008
+}
+]",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,"[{""title"": ""The Great Gatsby"", ""author"": ""F. Scott Fitzgerald"", ""year"": 1925}, {""title"": ""To Kill a Mockingbird"", ""author"": ""Harper Lee"", ""year"": 1960}, {""title"": ""The Hunger Games"", ""author"": ""Suzanne Collins"", ""year"": 2008}]",
+,,0.07348543795524165,0.015667505969759077,0.07664181897416711,274.00184756938324,39,21,18,True,True,1.0,,"Generate a JSON object representing a person with name, age, and email fields.","{
+  ""name"": """",
+  ""age"": 30,
+  ""email"": """"
+}",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,30.0,,,
+,,0.06773329904535785,0.012099933985155076,0.07088656502310187,296.2479560570627,39,21,18,True,True,1.0,,"Generate a JSON object representing a person with name, age, and email fields.","{
+  ""name"": """",
+  ""age"": 25,
+  ""email"": """"
+}",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,25.0,,,
+,,0.16813878732500598,0.014180988015141338,0.17135184700600803,280.1253726685362,63,48,15,True,True,1.0,,Generate a JSON object for a product catalog item with nested categories.,"{
+  ""id"": ""{id}"",
+  ""name"": ""{name}"",
+  ""price"": 100,
+  ""category"": {
+    ""main"": ""{main}"",
+    ""sub"": ""{sub}""
+  }
+}",{id},{name},100.0,{main},{sub},smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,,
+,,0.33414406108204275,0.014529220992699265,0.3390937029616907,309.64892324132137,125,105,20,True,True,1.0,,"Create a JSON array of 3 books, each with title, author, and year published.","[
+  {
+    ""title"": ""The Great Gatsby"",
+    ""author"": ""F. Scott Fitzgerald"",
+    ""year"": 1925
+  },
+  {
+    ""title"": ""To Kill a Mockingbird"",
+    ""author"": ""Harper Lee"",
+    ""year"": 1960
+  }
+
+,
+
+{
+  ""title"": ""The Hunger Games"",
+  ""author"": ""Suzanne Collins"",
+  ""year"": 2008
+}
+]",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,"[{""title"": ""The Great Gatsby"", ""author"": ""F. Scott Fitzgerald"", ""year"": 1925}, {""title"": ""To Kill a Mockingbird"", ""author"": ""Harper Lee"", ""year"": 1960}, {""title"": ""The Hunger Games"", ""author"": ""Suzanne Collins"", ""year"": 2008}]",
+,,0.33522580203134567,0.01376039901515469,0.34076183300931007,308.13310009730833,125,105,20,True,True,1.0,,"Create a JSON array of 3 books, each with title, author, and year published.","[
+  {
+    ""title"": ""The Great Gatsby"",
+    ""author"": ""F. Scott Fitzgerald"",
+    ""year"": 1925
+  },
+  {
+    ""title"": ""To Kill a Mockingbird"",
+    ""author"": ""Harper Lee"",
+    ""year"": 1960
+  }
+
+,
+
+{
+  ""title"": ""The Hunger Games"",
+  ""author"": ""Suzanne Collins"",
+  ""year"": 2008
+}
+]",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,"[{""title"": ""The Great Gatsby"", ""author"": ""F. Scott Fitzgerald"", ""year"": 1925}, {""title"": ""To Kill a Mockingbird"", ""author"": ""Harper Lee"", ""year"": 1960}, {""title"": ""The Hunger Games"", ""author"": ""Suzanne Collins"", ""year"": 2008}]",
+,,0.33259447827003896,0.013323380029760301,0.3361316400114447,312.3776149023785,125,105,20,True,True,1.0,,"Create a JSON array of 3 books, each with title, author, and year published.","[
+  {
+    ""title"": ""The Great Gatsby"",
+    ""author"": ""F. Scott Fitzgerald"",
+    ""year"": 1925
+  },
+  {
+    ""title"": ""To Kill a Mockingbird"",
+    ""author"": ""Harper Lee"",
+    ""year"": 1960
+  }
+
+,
+
+{
+  ""title"": ""The Hunger Games"",
+  ""author"": ""Suzanne Collins"",
+  ""year"": 2008
+}
+]",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,"[{""title"": ""The Great Gatsby"", ""author"": ""F. Scott Fitzgerald"", ""year"": 1925}, {""title"": ""To Kill a Mockingbird"", ""author"": ""Harper Lee"", ""year"": 1960}, {""title"": ""The Hunger Games"", ""author"": ""Suzanne Collins"", ""year"": 2008}]",
+,,0.0701200959738344,0.01415265497053042,0.0732542559853755,286.6727634800147,39,21,18,True,True,1.0,,"Generate a JSON object representing a person with name, age, and email fields.","{
+  ""name"": """",
+  ""age"": 25,
+  ""email"": """"
+}",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,25.0,,,
+,,0.06706249178387225,0.011747793992981315,0.07016129500698298,299.31032484377494,39,21,18,True,True,1.0,,"Generate a JSON object representing a person with name, age, and email fields.","{
+  ""name"": """",
+  ""age"": 25,
+  ""email"": """"
+}",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,25.0,,,
+,,0.35998379602096975,0.015461330011021346,0.363738628977444,288.6688177584548,125,105,20,True,True,1.0,,"Create a JSON array of 3 books, each with title, author, and year published.","[
+  {
+    ""title"": ""The Great Gatsby"",
+    ""author"": ""F. Scott Fitzgerald"",
+    ""year"": 1925
+  },
+  {
+    ""title"": ""To Kill a Mockingbird"",
+    ""author"": ""Harper Lee"",
+    ""year"": 1960
+  }
+
+,
+
+{
+  ""title"": ""The Hunger Games"",
+  ""author"": ""Suzanne Collins"",
+  ""year"": 2008
+}
+]",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,"[{""title"": ""The Great Gatsby"", ""author"": ""F. Scott Fitzgerald"", ""year"": 1925}, {""title"": ""To Kill a Mockingbird"", ""author"": ""Harper Lee"", ""year"": 1960}, {""title"": ""The Hunger Games"", ""author"": ""Suzanne Collins"", ""year"": 2008}]",
+,,0.07038487493991852,0.013341382960788906,0.0735614409786649,285.4756475758903,39,21,18,True,True,1.0,,"Generate a JSON object representing a person with name, age, and email fields.","{
+  ""name"": """",
+  ""age"": 25,
+  ""email"": """"
+}",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,25.0,,,
+,,0.06691449496429414,0.012044630013406277,0.07003331399755552,299.85729364075206,39,21,18,True,True,1.0,,"Generate a JSON object representing a person with name, age, and email fields.","{
+  ""name"": """",
+  ""age"": 25,
+  ""email"": """"
+}",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,25.0,,,
+,,0.32867432420607656,0.013186512980610132,0.3320103809819557,316.25517156858604,125,105,20,True,True,1.0,,"Create a JSON array of 3 books, each with title, author, and year published.","[
+  {
+    ""title"": ""The Great Gatsby"",
+    ""author"": ""F. Scott Fitzgerald"",
+    ""year"": 1925
+  },
+  {
+    ""title"": ""To Kill a Mockingbird"",
+    ""author"": ""Harper Lee"",
+    ""year"": 1960
+  }
+
+,
+
+{
+  ""title"": ""The Hunger Games"",
+  ""author"": ""Suzanne Collins"",
+  ""year"": 2008
+}
+]",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,"[{""title"": ""The Great Gatsby"", ""author"": ""F. Scott Fitzgerald"", ""year"": 1925}, {""title"": ""To Kill a Mockingbird"", ""author"": ""Harper Lee"", ""year"": 1960}, {""title"": ""The Hunger Games"", ""author"": ""Suzanne Collins"", ""year"": 2008}]",
+,,0.07117517897859216,0.014563456003088504,0.07422248198417947,282.93314153083907,39,21,18,True,True,1.0,,"Generate a JSON object representing a person with name, age, and email fields.","{
+  ""name"": """",
+  ""age"": 30,
+  ""email"": """"
+}",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,30.0,,,
+,,0.33155662496574223,0.01344310399144888,0.33497097401414067,313.4599954787947,125,105,20,True,True,1.0,,"Create a JSON array of 3 books, each with title, author, and year published.","[
+  {
+    ""title"": ""The Great Gatsby"",
+    ""author"": ""F. Scott Fitzgerald"",
+    ""year"": 1925
+  },
+  {
+    ""title"": ""To Kill a Mockingbird"",
+    ""author"": ""Harper Lee"",
+    ""year"": 1960
+  }
+
+,
+
+{
+  ""title"": ""The Hunger Games"",
+  ""author"": ""Suzanne Collins"",
+  ""year"": 2008
+}
+]",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,"[{""title"": ""The Great Gatsby"", ""author"": ""F. Scott Fitzgerald"", ""year"": 1925}, {""title"": ""To Kill a Mockingbird"", ""author"": ""Harper Lee"", ""year"": 1960}, {""title"": ""The Hunger Games"", ""author"": ""Suzanne Collins"", ""year"": 2008}]",
+,,0.3385634163278155,0.014071062032599002,0.34193167998455465,304.15432698338384,124,104,20,True,True,1.0,,"Create a JSON array of 3 books, each with title, author, and year published.","[
+  {
+    ""title"": ""The Great Gatsby"",
+    ""author"": ""F. Scott Fitzgerald"",
+    ""year"": 1925
+  },
+  {
+    ""title"": ""To Kill a Mockingbird"",
+    ""author"": ""Harper Lee"",
+    ""year"": 1960
+  }
+
+,
+{
+  ""title"": ""The Hunger Games"",
+  ""author"": ""Suzanne Collins"",
+  ""year"": 2008
+}
+]",,,,,,smollm2:360m,json_accuracy,20250701_115410,a99d3c081d999ec2886771dae65f329c,,,"[{""title"": ""The Great Gatsby"", ""author"": ""F. Scott Fitzgerald"", ""year"": 1925}, {""title"": ""To Kill a Mockingbird"", ""author"": ""Harper Lee"", ""year"": 1960}, {""title"": ""The Hunger Games"", ""author"": ""Suzanne Collins"", ""year"": 2008}]",

@@ -1,0 +1,176 @@
+error_code,error_msg,inter_token_latency_s,ttft_s,end_to_end_latency_s,request_output_throughput_token_per_s,number_total_tokens,number_output_tokens,number_input_tokens,tool_call_success,number_tool_calls,tool_call_accuracy,validation_errors,test_case,expected_tool,expected_args_location,extracted_calls,generated_text,model,test_type,timestamp,config_hash,expected_args_to,expected_args_subject,expected_args_body,expected_args_bill_amount,expected_args_tip_percentage,expected_args_unit
+,,2.150083285581786,1.4549748389981687,2.1559827519813552,73.28444527434065,170,158,12,False,0,0.0,"[""No tool calls found in response""]",What's the weather like in New York City?,get_weather,New York City,,"I don't have real-time access to current weather conditions. However, I can suggest some ways for you to find out the current weather in New York City:
+
+1. Check online weather websites: You can check websites like AccuWeather, Weather.com, or the National Weather Service (NWS) for the current weather conditions and forecast in New York City.
+2. Use a mobile app: You can download mobile apps like Dark Sky or Weather Underground that provide real-time weather information for your location.
+3. Tune into local news: You can watch local news channels or listen to radio stations that provide updates on the current weather conditions in New York City.
+
+If you'd like, I can also provide general information about the typical weather patterns in New York City during different times of the year.",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,,,,,,
+,,0.701836921449285,0.03492232400458306,0.7065655119949952,217.9557272264526,166,154,12,False,0,0.0,"[""No tool calls found in response""]",What's the weather like in New York City?,get_weather,New York City,,"I don't have real-time access to current weather conditions. However, I can suggest some ways for you to find out the current weather in New York City:
+
+1. Check online weather websites: You can check websites like AccuWeather, Weather.com, or the National Weather Service (NWS) for the current weather conditions and forecast in New York City.
+2. Use a mobile app: You can download mobile apps like Dark Sky or Weather Underground that provide real-time weather information for your location.
+3. Tune into local news: You can watch local news channels or listen to radio stations that provide weather updates for New York City.
+
+If you'd like, I can also provide general information about the typical weather patterns in New York City during different times of the year.",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,,,,,,
+,,0.17378731881035492,0.03802807698957622,0.1783370659686625,179.4354966321082,68,32,36,False,0,0.0,"[""No tool calls found in response""]",Send an email to john@example.com with subject 'Meeting Tomorrow' and body 'Don't forget about our meeting at 2 PM tomorrow.',send_email,,,"Here is the email:
+
+Subject: Meeting Tomorrow
+
+Dear John,
+
+Don't forget about our meeting at 2 PM tomorrow.
+
+Best regards,
+[Your Name]",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,john@example.com,Meeting Tomorrow,Don't forget about our meeting at 2 PM tomorrow.,,,
+,,0.2952638861024752,0.038219397014472634,0.2997664630529471,200.15581259135828,78,60,18,False,0,0.0,"[""No tool calls found in response""]",Calculate a 20% tip on a $85.50 bill,calculate_tip,,,"To calculate the 20% tip, multiply the total bill by 0.20.
+
+$85.50 x 0.20 = $17.10
+
+The total amount due would be:
+
+$85.50 (bill) + $17.10 (tip) = $102.60",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,,,,85.5,20.0,
+,,0.2947014186065644,0.03653244802262634,0.29928931599715725,200.47491438207538,78,60,18,False,0,0.0,"[""No tool calls found in response""]",Calculate a 20% tip on a $85.50 bill,calculate_tip,,,"To calculate the 20% tip, multiply the total bill by 0.20.
+
+$85.50 x 0.20 = $17.10
+
+The total amount due would be:
+
+$85.50 (bill) + $17.10 (tip) = $102.60",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,,,,85.5,20.0,
+,,0.28626976220402867,0.03239473601570353,0.29082466702675447,206.30987258890352,78,60,18,False,0,0.0,"[""No tool calls found in response""]",Calculate a 20% tip on a $85.50 bill,calculate_tip,,,"To calculate the 20% tip, multiply the total bill by 0.20.
+
+$85.50 x 0.20 = $17.10
+
+The total amount due would be:
+
+$85.50 (bill) + $17.10 (tip) = $102.60",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,,,,85.5,20.0,
+,,0.7787411398021504,0.054172058997210115,0.783548575011082,197.81798467032854,167,155,12,False,0,0.0,"[""No tool calls found in response""]",What's the weather like in New York City?,get_weather,New York City,,"I don't have real-time access to current weather conditions. However, I can suggest some ways for you to find out the current weather in New York City:
+
+1. Check online weather websites: You can check websites like AccuWeather, Weather.com, or the National Weather Service (NWS) for the current weather conditions and forecast in New York City.
+2. Use a mobile app: There are many mobile apps available that provide real-time weather information, such as Dark Sky or Weather Underground.
+3. Tune into local news: You can watch local news or listen to radio stations in New York City to get the latest weather updates.
+
+If you'd like, I can also provide general information about the typical weather patterns in New York City during different times of the year.",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,,,,,,
+,,0.20650062517961487,0.03539744601584971,0.21093402098631486,189.63275726202153,66,40,26,False,0,0.0,"[""No tool calls found in response""]",How much should I tip on a $42.75 restaurant bill if I want to tip 18%?,calculate_tip,,,"To calculate the tip, multiply the total bill by the desired percentage:
+
+$42.75 x 0.18 = $7.73
+
+So, you should tip approximately $7.73.",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,,,,42.75,18.0,
+,,0.786790622107219,0.04047525301575661,0.7915923530235887,213.4937248376425,181,169,12,False,0,0.0,"[""No tool calls found in response""]",What's the weather like in New York City?,get_weather,New York City,,"I'm a large language model, I don't have real-time access to current weather conditions. However, I can suggest some ways for you to find out the current weather in New York City:
+
+1. Check online weather websites: You can check websites like AccuWeather, Weather.com, or the National Weather Service (NWS) for the latest weather forecast and conditions in New York City.
+2. Use a mobile app: Download a weather app on your smartphone, such as Dark Sky or Weather Underground, to get current weather conditions and forecasts for New York City.
+3. Tune into local news: Watch local news channels or listen to radio stations that provide up-to-date weather information for New York City.
+
+If you'd like, I can also provide general information about the typical weather patterns in New York City during different times of the year.",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,,,,,,
+,,0.32558451598742977,0.04103772999951616,0.3302125379559584,199.87127202542095,92,66,26,False,0,0.0,"[""No tool calls found in response""]",How much should I tip on a $42.75 restaurant bill if I want to tip 18%?,calculate_tip,,,"To calculate the tip, multiply the total bill by the desired percentage:
+
+$42.75 x 0.18 = $7.71
+
+So, you should tip approximately $7.71 (or round up to $8) on a $42.75 restaurant bill if you want to give an 18% tip.",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,,,,42.75,18.0,
+,,0.8381506103323773,0.03598529001465067,0.8430331320269033,215.88712600466565,196,182,14,False,0,0.0,"[""No tool calls found in response""]",What's the temperature in Los Angeles in Celsius?,get_weather,Los Angeles,,"I don't have real-time access to current temperatures. However, I can provide you with average temperature ranges for Los Angeles throughout the year.
+
+Los Angeles has a Mediterranean climate, characterized by mild winters and warm summers. Here are some average temperature ranges:
+
+* Winter (December to February): 9°C to 17°C (48°F to 63°F)
+* Spring (March to May): 12°C to 22°C (54°F to 72°F)
+* Summer (June to August): 23°C to 28°C (73°F to 82°F)
+* Autumn (September to November): 15°C to 24°C (59°F to 75°F)
+
+Please note that these are average temperature ranges and can vary from year to year. If you want to know the current temperature in Los Angeles, I recommend checking a weather website or app for the most up-to-date information.",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,,,,,,celsius
+,,0.7978017221903428,0.03938677895348519,0.8030596409807913,202.973716623245,175,163,12,False,0,0.0,"[""No tool calls found in response""]",What's the weather like in New York City?,get_weather,New York City,,"I don't have real-time access to current weather conditions. However, I can suggest some ways for you to find out the current weather in New York City:
+
+1. Check online weather websites: You can check websites like AccuWeather, Weather.com, or the National Weather Service (NWS) for the current weather conditions and forecast in New York City.
+2. Use a mobile app: You can download mobile apps like Dark Sky or Weather Underground that provide real-time weather information and forecasts for various locations, including New York City.
+3. Tune into local news: You can watch local news channels or listen to radio stations that provide weather updates and forecasts for New York City.
+
+If you'd like, I can also provide general information about the typical weather patterns in New York City during different times of the year.",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,,,,,,
+,,0.7417347116279416,0.03281326201977208,0.7468353260192089,206.20342213972756,166,154,12,False,0,0.0,"[""No tool calls found in response""]",What's the weather like in New York City?,get_weather,New York City,,"I don't have real-time access to current weather conditions. However, I can suggest some ways for you to find out the current weather in New York City:
+
+1. Check online weather websites: You can check websites like AccuWeather, Weather.com, or the National Weather Service (NWS) for the current weather conditions and forecast in New York City.
+2. Use a mobile app: You can download mobile apps like Dark Sky or Weather Underground to get real-time weather updates on your smartphone.
+3. Tune into local news: You can watch local news channels or listen to radio stations that provide weather updates for New York City.
+
+If you'd like, I can also provide general information about the typical weather patterns in New York City during different times of the year.",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,,,,,,
+,,0.7278263231855817,0.0315255030291155,0.7329676490044221,210.1047709393118,166,154,12,False,0,0.0,"[""No tool calls found in response""]",What's the weather like in New York City?,get_weather,New York City,,"I don't have real-time access to current weather conditions. However, I can suggest some ways for you to find out the current weather in New York City:
+
+1. Check online weather websites: You can check websites such as AccuWeather, Weather.com, or the National Weather Service (NWS) for the current weather conditions in New York City.
+2. Use a mobile app: There are many mobile apps available that provide real-time weather information, such as Dark Sky or Weather Underground.
+3. Tune into local news: You can watch local news or listen to radio stations in New York City to get the latest weather forecast.
+
+If you'd like, I can also provide general information about the typical weather patterns in New York City during different times of the year.",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,,,,,,
+,,0.3063635167782195,0.03712370799621567,0.3109895810484886,192.9325085352135,78,60,18,False,0,0.0,"[""No tool calls found in response""]",Calculate a 20% tip on a $85.50 bill,calculate_tip,,,"To calculate the 20% tip, multiply the total bill by 0.20.
+
+$85.50 x 0.20 = $17.10
+
+The total amount due would be:
+
+$85.50 (bill) + $17.10 (tip) = $102.60",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,,,,85.5,20.0,
+,,0.29634919215459377,0.030524522997438908,0.3011970079969615,199.20516607723172,78,60,18,False,0,0.0,"[""No tool calls found in response""]",Calculate a 20% tip on a $85.50 bill,calculate_tip,,,"To calculate the 20% tip, multiply the total bill by 0.2.
+
+$85.50 x 0.2 = $17.10
+
+The total amount due would be:
+
+$85.50 (bill) + $17.10 (tip) = $102.60",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,,,,85.5,20.0,
+,,0.21073094091843814,0.03633773198816925,0.21524914598558098,185.8311670266952,66,40,26,False,0,0.0,"[""No tool calls found in response""]",How much should I tip on a $42.75 restaurant bill if I want to tip 18%?,calculate_tip,,,"To calculate the tip, multiply the total bill by the desired percentage:
+
+$42.75 x 0.18 = $7.71
+
+So, you should tip approximately $7.71.",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,,,,42.75,18.0,
+,,0.20037531305570155,0.030936516996007413,0.20486731501296163,195.24832449465774,66,40,26,False,0,0.0,"[""No tool calls found in response""]",How much should I tip on a $42.75 restaurant bill if I want to tip 18%?,calculate_tip,,,"To calculate the tip, multiply the total bill by the desired percentage:
+
+$42.75 x 0.18 = $7.73
+
+So, you should tip approximately $7.73.",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,,,,42.75,18.0,
+,,0.7533927114563994,0.03469326300546527,0.7585325560066849,217.52527125354638,177,165,12,False,0,0.0,"[""No tool calls found in response""]",What's the weather like in New York City?,get_weather,New York City,,"I don't have real-time access to current weather conditions. However, I can suggest some ways for you to find out the current weather in New York City:
+
+1. Check online weather websites: You can check websites like AccuWeather, Weather.com, or the National Weather Service (NWS) for the current weather conditions and forecast in New York City.
+2. Use a mobile app: You can download mobile apps like Dark Sky or Weather Underground that provide real-time weather information and forecasts for various locations, including New York City.
+3. Tune into local news: You can watch local news channels or listen to radio stations that provide updates on the current weather conditions in New York City.
+
+If you'd like, I can also provide general information about the typical weather patterns in New York City during different times of the year.",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,,,,,,
+,,0.3213783560786396,0.03763236402301118,0.3259156760177575,202.50636853811227,92,66,26,False,0,0.0,"[""No tool calls found in response""]",How much should I tip on a $42.75 restaurant bill if I want to tip 18%?,calculate_tip,,,"To calculate the tip, multiply the total bill by the desired percentage:
+
+$42.75 x 0.18 = $7.73
+
+So, you should tip approximately $7.73 (or round up to $8) on a $42.75 restaurant bill if you want to give an 18% tip.",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,,,,42.75,18.0,
+,,0.2918989708414301,0.035141123982612044,0.2963717139791697,202.44846984357306,78,60,18,False,0,0.0,"[""No tool calls found in response""]",Calculate a 20% tip on a $85.50 bill,calculate_tip,,,"To calculate the 20% tip, multiply the total bill by 0.20.
+
+$85.50 x 0.20 = $17.10
+
+The total amount due would be:
+
+$85.50 (bill) + $17.10 (tip) = $102.60",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,,,,85.5,20.0,
+,,0.3170735037419945,0.03542929596733302,0.32164226000895724,205.19691659349118,92,66,26,False,0,0.0,"[""No tool calls found in response""]",How much should I tip on a $42.75 restaurant bill if I want to tip 18%?,calculate_tip,,,"To calculate the tip, multiply the total bill by the desired percentage:
+
+$42.75 x 0.18 = $7.71
+
+So, you should tip approximately $7.71 (or round up to $8) on a $42.75 restaurant bill if you want to give an 18% tip.",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,,,,42.75,18.0,
+,,0.8274532027426176,0.037360473012086004,0.8322187269804999,218.69250726950358,196,182,14,False,0,0.0,"[""No tool calls found in response""]",What's the temperature in Los Angeles in Celsius?,get_weather,Los Angeles,,"I don't have real-time access to current temperatures. However, I can provide you with average temperature ranges for Los Angeles throughout the year.
+
+Los Angeles has a Mediterranean climate, characterized by mild winters and warm summers. Here are some average temperature ranges:
+
+* Winter (December to February): 9°C to 17°C (48°F to 63°F)
+* Spring (March to May): 12°C to 22°C (54°F to 72°F)
+* Summer (June to August): 23°C to 28°C (73°F to 82°F)
+* Autumn (September to November): 15°C to 24°C (59°F to 75°F)
+
+Please note that these are average temperature ranges and can vary from year to year. If you want to know the current temperature in Los Angeles, I recommend checking a weather website or app for the most up-to-date information.",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,,,,,,celsius
+,,0.2925369690055959,0.0378678260021843,0.2970445780083537,201.98988448902992,78,60,18,False,0,0.0,"[""No tool calls found in response""]",Calculate a 20% tip on a $85.50 bill,calculate_tip,,,"To calculate the 20% tip, multiply the total bill by 0.20.
+
+$85.50 x 0.20 = $17.10
+
+The total amount due would be:
+
+$85.50 (bill) + $17.10 (tip) = $102.60",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,,,,85.5,20.0,
+,,0.8616751616355032,0.032820735999848694,0.8672272619442083,217.93595323132152,203,189,14,False,0,0.0,"[""No tool calls found in response""]",What's the temperature in Los Angeles in Celsius?,get_weather,Los Angeles,,"I don't have real-time access to current temperatures. However, I can provide you with average temperature ranges for Los Angeles throughout the year.
+
+Los Angeles has a Mediterranean climate, characterized by mild winters and warm summers. Here are some average temperature ranges:
+
+* Winter (December to February): 10°C to 17°C (50°F to 63°F)
+* Spring (March to May): 15°C to 22°C (59°F to 72°F)
+* Summer (June to August): 23°C to 28°C (73°F to 82°F)
+* Autumn (September to November): 18°C to 25°C (64°F to 77°F)
+
+Please note that these are average temperature ranges and can vary from year to year. If you're looking for current temperatures, I recommend checking a reliable weather website or app, such as AccuWeather or Weather.com, for the most up-to-date information.",llama3.2:3b,tool_calling,20250701_110231,f2b21a50ba418c4c98c8705595701635,,,,,,celsius

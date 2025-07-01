@@ -1,0 +1,209 @@
+error_code,error_msg,inter_token_latency_s,ttft_s,end_to_end_latency_s,request_output_throughput_token_per_s,number_total_tokens,number_output_tokens,number_input_tokens,tool_call_success,number_tool_calls,tool_call_accuracy,validation_errors,test_case,expected_tool,expected_args_location,extracted_calls,generated_text,model,test_type,timestamp,config_hash,expected_args_to,expected_args_subject,expected_args_body,expected_args_bill_amount,expected_args_tip_percentage,expected_args_unit
+,,26.570209729135968,23.27463102596812,27.38148522999836,4.346002380821441,131,119,12,True,1,1.0,,What's the weather like in New York City?,get_weather,New York City,"[{""function"": ""get_weather"", ""arguments"": {""location"": ""New York City"", ""unit"": ""celsius""}}]","<think>
+Okay, the user is asking about the weather in New York City. Let me check which tool I can use for that. Oh, there's the get_weather function. It requires the location parameter, so I need to specify ""New York City"" there. The unit is optional, but since the user didn't specify, I'll default to celsius. Let me make sure the parameters are correct. Location is a string, and unit is from the enum. Alright, I should call get_weather with location: ""New York City"" and unit: ""celsius"".
+</think>
+
+
+{""function"": ""get_weather"", ""arguments"": {""location"": ""New York City"", ""unit"": ""celsius""}}",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,,,,,,
+,,6.891744404798374,0.055143084027804434,7.487621234031394,32.854225969914836,258,246,12,True,1,1.0,,What's the weather like in New York City?,get_weather,New York City,"[{""function"": ""get_weather"", ""arguments"": {""location"": ""New York City""}}]","<think>
+Okay, the user is asking about the weather in New York City. Let me check which tool I can use for that. Oh, there's the get_weather function. It requires the location parameter, so I need to specify ""New York City"" there. The unit is optional, but since the user didn't specify, I'll default to celsius. Wait, maybe in the US people prefer Fahrenheit? Hmm, the function allows both. The user didn't mention which one, so maybe I should just stick with the default. The function's enum has celsius and fahrenheit. Let me check the function definition again. The unit parameter is optional, so I can omit it. But sometimes, the default might be based on the location. New York uses Fahrenheit typically. Wait, but the function's default isn't specified. So maybe I should include the unit as fahrenheit for accuracy. But since the user didn't specify, perhaps it's better to leave it out and let the function handle the default. The function might return in the default unit based on the location. So I'll proceed with just the location. Alright, I'll call get_weather with location set to ""New York City"".
+</think>
+
+
+{""function"": ""get_weather"", ""arguments"": {""location"": ""New York City""}}",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,,,,,,
+,,3.6865279268822633,0.07965257996693254,5.105203912011348,23.8971845400656,158,122,36,True,1,1.0,,Send an email to john@example.com with subject 'Meeting Tomorrow' and body 'Don't forget about our meeting at 2 PM tomorrow.',send_email,,"[{""function"": ""send_email"", ""arguments"": {""body"": ""Don't forget about our meeting at 2 PM tomorrow."", ""subject"": ""Meeting Tomorrow"", ""to"": ""john@example.com""}}]","<think>
+Okay, the user wants to send an email to john@example.com. Let me check the available tools. There's a send_email function. The parameters required are to, subject, and body. The user provided all three: the to address is john@example.com, the subject is 'Meeting Tomorrow', and the body is 'Don't forget about our meeting at 2 PM tomorrow.' So I need to call the send_email function with these arguments. I'll make sure the JSON is correctly formatted with the parameters. No other functions are needed here. Just a straightforward call to send_email.
+</think>
+
+
+{""function"": ""send_email"", ""arguments"": {""body"": ""Don't forget about our meeting at 2 PM tomorrow."", ""subject"": ""Meeting Tomorrow"", ""to"": ""john@example.com""}}",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,john@example.com,Meeting Tomorrow,Don't forget about our meeting at 2 PM tomorrow.,,,
+,,6.676545260997955,0.07453400798840448,7.563915056001861,31.33298010954576,255,237,18,True,1,1.0,,Calculate a 20% tip on a $85.50 bill,calculate_tip,,"[{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 85.5, ""tip_percentage"": 20}}]","<think>
+Okay, the user wants to calculate a 20% tip on an $85.50 bill. Let me check which tool to use. The available functions are get_weather, calculate_tip, and send_email. The calculate_tip function seems right here.
+
+Looking at the parameters for calculate_tip, it requires bill_amount and tip_percentage. The bill amount is $85.50, and the tip percentage is 20. I need to make sure the parameters are in the correct format. The bill_amount should be a number, which 85.50 is, and tip_percentage is also a number, 20 in this case. 
+
+I should structure the JSON object with these values. Let me double-check the function's required fields. Yes, both bill_amount and tip_percentage are required. No optional parameters here. 
+
+So the tool call should be calculate_tip with arguments {""bill_amount"": 85.50, ""tip_percentage"": 20}. That should give the user the correct tip amount. I don't see any issues with this approach. Time to format the response correctly in the tool_call tags.
+</think>
+
+
+{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 85.5, ""tip_percentage"": 20}}",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,,,,85.5,20.0,
+,,4.42689614353003,0.057745600992348045,5.350583509018179,29.155698576999814,174,156,18,True,1,1.0,,Calculate a 20% tip on a $85.50 bill,calculate_tip,,"[{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 85.5, ""tip_percentage"": 20}}]","<think>
+Okay, the user wants to calculate a 20% tip on an $85.50 bill. Let me check which tool to use. The available functions are get_weather, calculate_tip, and send_email. The calculate_tip function seems right here.
+
+Looking at the parameters for calculate_tip, it requires bill_amount and tip_percentage. The bill amount is $85.50, and the tip percentage is 20. So I need to pass these values as arguments. The function should return the calculated tip. Let me make sure the parameters are correctly formatted. Bill amount is a number, and tip percentage is also a number. Yes, 20 is correct for 20%. I'll call the function with these values.
+</think>
+
+
+{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 85.5, ""tip_percentage"": 20}}",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,,,,85.5,20.0,
+,,5.771831817401107,0.05701002205023542,6.660512731003109,30.62827266291802,222,204,18,True,1,1.0,,Calculate a 20% tip on a $85.50 bill,calculate_tip,,"[{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 85.5, ""tip_percentage"": 20}}]","<think>
+Okay, the user wants to calculate a 20% tip on an $85.50 bill. Let me check which tool to use. The available functions are get_weather, calculate_tip, and send_email. The calculate_tip function seems right here.
+
+Looking at the parameters for calculate_tip, it requires bill_amount and tip_percentage. The bill amount is $85.50, and the tip percentage is 20. So I need to pass these values as arguments. The function should return the calculated tip. 
+
+I should make sure the parameters are in the correct format. The bill_amount is a number, which 85.50 is, and tip_percentage is also a number, 20 in this case. No units or other parameters are needed here. 
+
+I'll structure the tool call with the function name as calculate_tip and the arguments as bill_amount: 85.50 and tip_percentage: 20. That should do it.
+</think>
+
+
+{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 85.5, ""tip_percentage"": 20}}",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,,,,85.5,20.0,
+,,3.497741328785196,0.07856187899596989,4.317582071991637,27.561722745691096,131,119,12,True,1,1.0,,What's the weather like in New York City?,get_weather,New York City,"[{""function"": ""get_weather"", ""arguments"": {""location"": ""New York City"", ""unit"": ""celsius""}}]","<think>
+Okay, the user is asking about the weather in New York City. Let me check which tool I can use for that. Oh, there's the get_weather function. It requires the location parameter, so I need to specify ""New York City"" there. The unit is optional, but since the user didn't specify, I'll default to celsius. Let me make sure the parameters are correct. Location is a string, and unit is from the enum. Alright, I should call get_weather with location: ""New York City"" and unit: ""celsius"".
+</think>
+
+
+{""function"": ""get_weather"", ""arguments"": {""location"": ""New York City"", ""unit"": ""celsius""}}",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,,,,,,
+,,5.524177180894185,0.07307550602126867,6.437548961024731,30.446370378952526,222,196,26,True,1,1.0,,How much should I tip on a $42.75 restaurant bill if I want to tip 18%?,calculate_tip,,"[{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 42.75, ""tip_percentage"": 18}}]","<think>
+Okay, the user is asking how much they should tip on a $42.75 bill with an 18% tip. Let me see which tool to use here. The available functions are get_weather, calculate_tip, and send_email. The question is about calculating a tip, so the calculate_tip function is the right choice.
+
+Looking at the parameters for calculate_tip, it requires bill_amount and tip_percentage. The bill amount here is $42.75, and the tip percentage is 18%. I need to make sure the arguments are in the correct format. The bill_amount is a number, which 42.75 is, and tip_percentage is also a number, 18. So I should structure the JSON with those values. Let me double-check the function's required parameters to ensure I'm not missing anything. Yep, both are required. Alright, I'll format the tool call with those numbers.
+</think>
+
+
+{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 42.75, ""tip_percentage"": 18}}",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,,,,42.75,18.0,
+,,3.4679840866592713,0.07151423796312883,4.283748024958186,27.779411698978624,131,119,12,True,1,1.0,,What's the weather like in New York City?,get_weather,New York City,"[{""function"": ""get_weather"", ""arguments"": {""location"": ""New York City"", ""unit"": ""celsius""}}]","<think>
+Okay, the user is asking about the weather in New York City. Let me check which tool I can use for that. Oh, there's the get_weather function. It requires the location parameter, so I need to specify ""New York City"" there. The unit is optional, but since the user didn't specify, I'll default to celsius. Let me make sure the parameters are correct. Location is a string, and unit is from the enum. Alright, I should call get_weather with location: ""New York City"" and unit: ""celsius"".
+</think>
+
+
+{""function"": ""get_weather"", ""arguments"": {""location"": ""New York City"", ""unit"": ""celsius""}}",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,,,,,,
+,,5.975065096106846,0.07436012901598588,6.907968858024105,28.373028892904145,222,196,26,True,1,1.0,,How much should I tip on a $42.75 restaurant bill if I want to tip 18%?,calculate_tip,,"[{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 42.75, ""tip_percentage"": 18}}]","<think>
+Okay, the user is asking how much they should tip on a $42.75 bill with an 18% tip. Let me see which tool to use here. The available functions are get_weather, calculate_tip, and send_email. The question is about calculating a tip, so the calculate_tip function is the right choice.
+
+Looking at the parameters for calculate_tip, it requires bill_amount and tip_percentage. The bill amount here is $42.75, and the tip percentage is 18%. I need to make sure the arguments are in the correct format. The bill_amount is a number, which 42.75 is, and tip_percentage is also a number, 18. So I should structure the JSON with those values. Let me double-check the function's required parameters to ensure I'm not missing anything. Yep, both are required. Alright, I'll format the tool call with those numbers.
+</think>
+
+
+{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 42.75, ""tip_percentage"": 18}}",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,,,,42.75,18.0,
+,,5.054856469214428,0.08040588401490822,5.986664241994731,27.72829630824419,180,166,14,True,1,0.0,,What's the temperature in Los Angeles in Celsius?,get_weather,Los Angeles,"[{""function"": ""get_weather"", ""arguments"": {""location"": ""Los Angeles, CA"", ""unit"": ""celsius""}}]","<think>
+Okay, the user is asking for the temperature in Los Angeles in Celsius. Let me check which tool I can use here. The available tools are get_weather, calculate_tip, and send_email. The get_weather function seems relevant here because it's for getting the current weather for a location. 
+
+Looking at the parameters for get_weather, it requires the location and has an optional unit parameter with an enum of celsius or fahrenheit. The user specifically asked for Celsius, so I need to make sure to include that in the arguments.
+
+The location should be ""Los Angeles, CA"" to specify the city and state. So the function call would be get_weather with location set to ""Los Angeles, CA"" and unit set to ""celsius"". I should structure the JSON accordingly within the tool_call tags.
+</think>
+
+
+{""function"": ""get_weather"", ""arguments"": {""location"": ""Los Angeles, CA"", ""unit"": ""celsius""}}",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,,,,,,celsius
+,,3.8011863520368934,0.08042392903007567,4.688865990028717,25.379270862733954,131,119,12,True,1,1.0,,What's the weather like in New York City?,get_weather,New York City,"[{""function"": ""get_weather"", ""arguments"": {""location"": ""New York City"", ""unit"": ""celsius""}}]","<think>
+Okay, the user is asking about the weather in New York City. Let me check which tool I can use for that. Oh, there's the get_weather function. It requires the location parameter, so I need to specify ""New York City"" there. The unit is optional, but since the user didn't specify, I'll default to celsius. Let me make sure the parameters are correct. Location is a string, and unit is from the enum. Alright, I should call get_weather with location: ""New York City"" and unit: ""celsius"".
+</think>
+
+
+{""function"": ""get_weather"", ""arguments"": {""location"": ""New York City"", ""unit"": ""celsius""}}",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,,,,,,
+,,8.0740677556023,0.05587063101120293,8.663117487041745,31.85920084921388,288,276,12,True,1,1.0,,What's the weather like in New York City?,get_weather,New York City,"[{""function"": ""get_weather"", ""arguments"": {""location"": ""New York City""}}]","<think>
+Okay, the user is asking about the weather in New York City. Let me check which tool I can use for that. Oh, there's the get_weather function. It requires the location parameter, so I need to specify ""New York City"" there. The unit is optional, but since the user didn't specify, I'll default to celsius. Wait, maybe in the US people prefer Fahrenheit? Hmm, the function allows both. The user didn't mention which one, so maybe I should just stick with the default. The function's enum has celsius and fahrenheit. Let me check the function definition again. The unit parameter is optional, so I can omit it. But sometimes, the default might be based on the location. Since New York uses Fahrenheit typically, maybe I should set unit to fahrenheit. Wait, but the function's default isn't specified. So perhaps it's better to include the unit. Or maybe leave it out and let the function handle the default. The user didn't specify, so maybe it's safer to not assume. Wait, the function's required parameters are location, so unit is optional. So I can just provide the location. Let me go with that. So the arguments would be {""location"": ""New York City""}. Yeah, that's sufficient. I'll call get_weather with that.
+</think>
+
+
+{""function"": ""get_weather"", ""arguments"": {""location"": ""New York City""}}",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,,,,,,
+,,8.339819341199473,0.05691688496153802,8.340075039945077,35.97089936998644,312,300,12,False,0,0.0,"[""No tool calls found in response""]",What's the weather like in New York City?,get_weather,New York City,,"<think>
+Okay, the user is asking about the weather in New York City. Let me check which tool I can use for that. Oh, there's the get_weather function. It requires the location parameter, so I need to specify ""New York City"" there. The unit is optional, but since the user didn't specify, I'll default to celsius. Wait, maybe in the US people prefer Fahrenheit? Hmm, the function allows both. The user didn't mention which one, so maybe I should just stick with the default. The function's enum has celsius and fahrenheit. Let me check the function definition again. The unit parameter is optional, so I can omit it. But sometimes, the default might be based on the location. New York uses Fahrenheit typically. Wait, but the function's default isn't specified. So maybe I should include the unit as fahrenheit for accuracy. But since the user didn't specify, maybe it's better to leave it out and let the function handle the default. I think the function might default to celsius if not provided, but I'm not sure. Wait, looking back at the function parameters, the unit is an enum with celsius and fahrenheit. Since the user didn't specify, perhaps the function has a default. But the function's parameters don't mention a default. So maybe it's better to include the unit as fahrenheit for New York. Alternatively, maybe the function expects the unit to be optional and will",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,,,,,,
+,,5.8542151326546445,0.06767028302419931,6.80022120202193,29.851970100566934,221,203,18,True,1,1.0,,Calculate a 20% tip on a $85.50 bill,calculate_tip,,"[{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 85.5, ""tip_percentage"": 20}}]","<think>
+Okay, the user wants to calculate a 20% tip on an $85.50 bill. Let me check which tool to use. The available functions are get_weather, calculate_tip, and send_email. The calculate_tip function seems right here.
+
+Looking at the parameters for calculate_tip, it requires bill_amount and tip_percentage. The bill amount is $85.50, and the tip percentage is 20. So I need to pass these values as arguments. The function should return the calculated tip. 
+
+I should make sure the parameters are in the correct format. The bill_amount is a number, which 85.50 is, and tip_percentage is also a number, 20 in this case. No need for any other parameters here. 
+
+So the tool call should be to calculate_tip with those values. Let me structure the JSON accordingly. Double-checking the required fields: yes, both are required. Alright, that's all.
+</think>
+
+
+{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 85.5, ""tip_percentage"": 20}}",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,,,,85.5,20.0,
+,,4.572339520032983,0.07207723398460075,5.506379984959494,28.330772744726872,174,156,18,True,1,1.0,,Calculate a 20% tip on a $85.50 bill,calculate_tip,,"[{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 85.5, ""tip_percentage"": 20}}]","<think>
+Okay, the user wants to calculate a 20% tip on an $85.50 bill. Let me check which tool to use. The available functions are get_weather, calculate_tip, and send_email. The calculate_tip function seems right here.
+
+Looking at the parameters for calculate_tip, it requires bill_amount and tip_percentage. The bill amount is $85.50, and the tip percentage is 20. So I need to pass these values as arguments. The function should return the calculated tip. Let me make sure the parameters are correctly formatted. Bill amount is a number, and tip percentage is also a number. Yes, 20 is correct for 20%. I'll call the function with these values.
+</think>
+
+
+{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 85.5, ""tip_percentage"": 20}}",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,,,,85.5,20.0,
+,,5.533373352023773,0.07535634801024571,6.428947373002302,30.487105995466955,222,196,26,True,1,1.0,,How much should I tip on a $42.75 restaurant bill if I want to tip 18%?,calculate_tip,,"[{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 42.75, ""tip_percentage"": 18}}]","<think>
+Okay, the user is asking how much they should tip on a $42.75 bill with an 18% tip. Let me see which tool to use here. The available functions are get_weather, calculate_tip, and send_email. The question is about calculating a tip, so the calculate_tip function is the right choice.
+
+Looking at the parameters for calculate_tip, it requires bill_amount and tip_percentage. The bill amount here is $42.75, and the tip percentage is 18%. I need to make sure the arguments are in the correct format. The bill_amount is a number, which 42.75 is, and tip_percentage is also a number, 18. So I should structure the JSON with those values. Let me double-check the function's required parameters to ensure I'm not missing anything. Yep, both are required. Alright, I'll format the tool call with those numbers.
+</think>
+
+
+{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 42.75, ""tip_percentage"": 18}}",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,,,,42.75,18.0,
+,,5.51973535300931,0.05854375200578943,6.433322297991253,30.46637350365599,222,196,26,True,1,1.0,,How much should I tip on a $42.75 restaurant bill if I want to tip 18%?,calculate_tip,,"[{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 42.75, ""tip_percentage"": 18}}]","<think>
+Okay, the user is asking how much they should tip on a $42.75 bill with an 18% tip. Let me see which tool to use here. The available functions are get_weather, calculate_tip, and send_email. The question is about calculating a tip, so the calculate_tip function is the right choice.
+
+Looking at the parameters for calculate_tip, it requires bill_amount and tip_percentage. The bill amount here is $42.75, and the tip percentage is 18%. I need to make sure the arguments are in the correct format. The bill_amount is a number, which 42.75 is, and tip_percentage is also a number, 18. So I should structure the JSON with those values. Let me double-check the function's required parameters to ensure I'm not missing anything. Yep, both are required. Alright, I'll format the tool call with those numbers.
+</think>
+
+
+{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 42.75, ""tip_percentage"": 18}}",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,,,,42.75,18.0,
+,,3.4174873585579917,0.06962701899465173,4.254409815999679,27.97097720874781,131,119,12,True,1,1.0,,What's the weather like in New York City?,get_weather,New York City,"[{""function"": ""get_weather"", ""arguments"": {""location"": ""New York City"", ""unit"": ""celsius""}}]","<think>
+Okay, the user is asking about the weather in New York City. Let me check which tool I can use for that. Oh, there's the get_weather function. It requires the location parameter, so I need to specify ""New York City"" there. The unit is optional, but since the user didn't specify, I'll default to celsius. Let me make sure the parameters are correct. Location is a string, and unit is from the enum. Alright, I should call get_weather with location: ""New York City"" and unit: ""celsius"".
+</think>
+
+
+{""function"": ""get_weather"", ""arguments"": {""location"": ""New York City"", ""unit"": ""celsius""}}",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,,,,,,
+,,7.002730158972554,0.07379978999961168,8.045158392982557,30.57739673771683,272,246,26,True,1,1.0,,How much should I tip on a $42.75 restaurant bill if I want to tip 18%?,calculate_tip,,"[{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 42.75, ""tip_percentage"": 18}}]","<think>
+Okay, the user is asking how much they should tip on a $42.75 bill with an 18% tip. Let me see which tool to use here. The available functions are get_weather, calculate_tip, and send_email. The question is about calculating a tip, so the calculate_tip function is the right choice.
+
+Looking at the parameters for calculate_tip, it requires bill_amount and tip_percentage. The bill amount here is $42.75, and the tip percentage is 18%. I need to make sure the parameters are in the correct format. The bill_amount is a number, which 42.75 is, and tip_percentage is also a number, 18 in this case. 
+
+I should structure the function call with these values. Let me double-check the required fields. Yes, both parameters are required. So the arguments should be {""bill_amount"": 42.75, ""tip_percentage"": 18}. 
+
+I don't need to use any other functions here. The user just wants the tip amount calculated, so calling calculate_tip with these values should give them the answer they need. Alright, that's all.
+</think>
+
+
+{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 42.75, ""tip_percentage"": 18}}",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,,,,42.75,18.0,
+,,5.762875489890575,0.07108488696394488,6.661566815979313,30.473311400713932,221,203,18,True,1,1.0,,Calculate a 20% tip on a $85.50 bill,calculate_tip,,"[{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 85.5, ""tip_percentage"": 20}}]","<think>
+Okay, the user wants to calculate a 20% tip on an $85.50 bill. Let me check which tool to use. The available functions are get_weather, calculate_tip, and send_email. The calculate_tip function seems right here.
+
+Looking at the parameters for calculate_tip, it requires bill_amount and tip_percentage. The bill amount is $85.50, and the tip percentage is 20. So I need to pass these values as arguments. The function should return the calculated tip. 
+
+I should make sure the parameters are in the correct format. The bill_amount is a number, which 85.50 is, and tip_percentage is also a number, 20 in this case. No need for any other parameters here. 
+
+So the tool call should be to calculate_tip with those values. Let me structure the JSON accordingly. Double-checking the required fields: yes, both are required. Alright, that's all.
+</think>
+
+
+{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 85.5, ""tip_percentage"": 20}}",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,,,,85.5,20.0,
+,,7.8103005375596695,0.07381194597110152,8.860817300970666,29.22980930569775,285,259,26,True,1,1.0,,How much should I tip on a $42.75 restaurant bill if I want to tip 18%?,calculate_tip,,"[{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 42.75, ""tip_percentage"": 18}}]","<think>
+Okay, the user is asking how much they should tip on a $42.75 bill with an 18% tip. Let me see which tool to use here. The available functions are get_weather, calculate_tip, and send_email. The question is about calculating a tip, so the calculate_tip function is the right choice.
+
+Looking at the parameters for calculate_tip, it requires bill_amount and tip_percentage. The bill amount here is $42.75, and the tip percentage is 18%. I need to make sure the parameters are in the correct format. The bill_amount is a number, which 42.75 is, and tip_percentage is also a number, 18 in this case. 
+
+I should structure the function call with these values. Let me double-check the required fields. Yes, both parameters are required. So the arguments should be {""bill_amount"": 42.75, ""tip_percentage"": 18}. 
+
+I don't need to use any other functions here. The user just wants the tip amount calculated, so calling calculate_tip with these values should give them the answer they need. No issues with the input data, everything seems straightforward. Time to format the tool call correctly.
+</think>
+
+
+{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 42.75, ""tip_percentage"": 18}}",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,,,,42.75,18.0,
+,,5.538875037978869,0.0754387800116092,6.511382495984435,25.49381795684282,180,166,14,True,1,0.0,,What's the temperature in Los Angeles in Celsius?,get_weather,Los Angeles,"[{""function"": ""get_weather"", ""arguments"": {""location"": ""Los Angeles, CA"", ""unit"": ""celsius""}}]","<think>
+Okay, the user is asking for the temperature in Los Angeles in Celsius. Let me check which tool I can use here. The available tools are get_weather, calculate_tip, and send_email. The get_weather function seems relevant here because it's for getting the current weather for a location. 
+
+Looking at the parameters for get_weather, it requires the location and has an optional unit parameter with an enum of celsius or fahrenheit. The user specifically asked for Celsius, so I need to make sure to include that in the arguments.
+
+The location should be ""Los Angeles, CA"" to specify the city and state. So the function call would be get_weather with location set to ""Los Angeles, CA"" and unit set to ""celsius"". I should structure the JSON accordingly within the tool_call tags.
+</think>
+
+
+{""function"": ""get_weather"", ""arguments"": {""location"": ""Los Angeles, CA"", ""unit"": ""celsius""}}",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,,,,,,celsius
+,,7.0003351350314915,0.07517052802722901,8.065614207996987,26.036454829662794,228,210,18,True,1,1.0,,Calculate a 20% tip on a $85.50 bill,calculate_tip,,"[{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 85.5, ""tip_percentage"": 20}}]","<think>
+Okay, the user wants to calculate a 20% tip on an $85.50 bill. Let me check which tool to use. The available functions are get_weather, calculate_tip, and send_email. The calculate_tip function seems right here.
+
+Looking at the parameters for calculate_tip, it requires bill_amount and tip_percentage. The bill amount is $85.50, and the tip percentage is 20. So I need to pass those values into the function. 
+
+Wait, the parameters are numbers, so I should make sure they're in the correct format. The bill_amount is 85.50, which is a number, and tip_percentage is 20, also a number. The function should handle that. 
+
+I should generate the tool call with these values. Let me double-check the function's required parameters. Yes, both are required. Alright, the JSON should have the name as ""calculate_tip"" and the arguments with those values. That should do it.
+</think>
+
+
+{""function"": ""calculate_tip"", ""arguments"": {""bill_amount"": 85.5, ""tip_percentage"": 20}}",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,,,,85.5,20.0,
+,,3.769064817170147,0.07752330403309315,4.770305793033913,23.47857870318373,126,112,14,True,1,0.0,,What's the temperature in Los Angeles in Celsius?,get_weather,Los Angeles,"[{""function"": ""get_weather"", ""arguments"": {""location"": ""Los Angeles, CA"", ""unit"": ""celsius""}}]","<think>
+Okay, the user is asking for the temperature in Los Angeles in Celsius. Let me check which tool to use. The available functions are get_weather, calculate_tip, and send_email. The get_weather function seems relevant here. It requires a location and an optional unit parameter. The user specified Los Angeles and wants Celsius, so I need to call get_weather with location ""Los Angeles, CA"" and unit ""celsius"". The other functions don't apply here. I'll make sure to format the tool call correctly within the XML tags.
+</think>
+
+
+{""function"": ""get_weather"", ""arguments"": {""location"": ""Los Angeles, CA"", ""unit"": ""celsius""}}",qwen3:32b,tool_calling,20250701_115904,4ba612fb1e2407697254e1097850e4a6,,,,,,celsius
