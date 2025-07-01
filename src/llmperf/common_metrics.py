@@ -15,3 +15,21 @@ NUM_COMPLETED_REQUESTS = "num_completed_requests"
 COMPLETED_REQUESTS_PER_MIN = "num_completed_requests_per_min"
 ERROR_RATE = "error_rate"
 NUM_REQ_STARTED = "num_requests_started"
+
+# Structured output and tool calling metrics
+JSON_VALID = "json_valid"
+JSON_SCHEMA_VALID = "json_schema_valid"
+JSON_PARSE_ERROR = "json_parse_error"
+SCHEMA_VALIDATION_ERROR = "schema_validation_error"
+TOOL_CALL_SUCCESS = "tool_call_success"
+TOOL_CALL_ERROR = "tool_call_error"
+NUM_TOOL_CALLS = "number_tool_calls"
+TOOL_CALL_ACCURACY = "tool_call_accuracy"
+STRUCTURED_OUTPUT_ACCURACY = "structured_output_accuracy"
+RESPONSE_FORMAT_COMPLIANCE = "response_format_compliance"
+
+# Accuracy and validation metrics
+ACCURACY_SCORE = "accuracy_score"
+VALIDATION_ERRORS = "validation_errors"
+EXPECTED_VS_ACTUAL = "expected_vs_actual"
+SEMANTIC_SIMILARITY = "semantic_similarity"

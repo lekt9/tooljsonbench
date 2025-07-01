@@ -26,6 +26,15 @@ from tqdm import tqdm
 
 from transformers import LlamaTokenizerFast
 
+# Add CSV results manager import
+import sys
+sys.path.insert(0, str(Path(__file__).parent / "src"))
+try:
+    from llmperf.csv_results_manager import CSVResultsManager
+except ImportError:
+    # Fallback if import fails
+    CSVResultsManager = None
+
 def get_token_throughput_latencies(
     model: str,
     mean_input_tokens: int,
@@ -117,7 +126,7 @@ def get_token_throughput_latencies(
                 num_output_tokens = get_token_length(gen_text)
                 with completed_requests_lock:
                     if num_completed_requests < max_num_completed_requests:
-                        if num_output_tokens:
+                        if num_output_tokens and request_metrics.get(common_metrics.NUM_OUTPUT_TOKENS, 0) > 0:
                             request_metrics[common_metrics.INTER_TOKEN_LAT] /= request_metrics[common_metrics.NUM_OUTPUT_TOKENS]
                         else:
                             request_metrics[common_metrics.INTER_TOKEN_LAT] = 0
@@ -154,7 +163,7 @@ def get_token_throughput_latencies(
         num_output_tokens = get_token_length(gen_text)
         with completed_requests_lock:
             if num_completed_requests < max_num_completed_requests:
-                if num_output_tokens:
+                if num_output_tokens and num_output_tokens > 0:
                     request_metrics[common_metrics.INTER_TOKEN_LAT] /= num_output_tokens
                 else:
                     request_metrics[common_metrics.INTER_TOKEN_LAT] = 0
@@ -215,7 +224,21 @@ def metrics_summary(
                 yield sub_item
 
     df = pd.DataFrame(metrics)
-    df_without_errored_req = df[df[common_metrics.ERROR_CODE].isna()]
+
+    # Handle empty metrics case
+    if df.empty:
+        print("No metrics to summarize")
+        return {
+            "num_completed_requests": 0,
+            "error_rate": 1.0,
+            "test_duration_s": end_time - start_time
+        }
+
+    # Check if ERROR_CODE column exists
+    if common_metrics.ERROR_CODE in df.columns:
+        df_without_errored_req = df[df[common_metrics.ERROR_CODE].isna()]
+    else:
+        df_without_errored_req = df
     
     for key in [
         common_metrics.INTER_TOKEN_LAT,
@@ -227,8 +250,15 @@ def metrics_summary(
     ]:
         print(key)
         ret[key] = {}
-        series = pd.Series(list(flatten(df_without_errored_req[key]))).dropna()
-        quantiles = series.quantile([0.25, 0.5, 0.75, 0.9, 0.95, 0.99]).to_dict()
+
+        # Check if key exists in dataframe
+        if key in df_without_errored_req.columns:
+            series = pd.Series(list(flatten(df_without_errored_req[key]))).dropna()
+            quantiles = series.quantile([0.25, 0.5, 0.75, 0.9, 0.95, 0.99]).to_dict()
+        else:
+            # Default values if key doesn't exist
+            quantiles = {0.25: 0, 0.5: 0, 0.75: 0, 0.9: 0, 0.95: 0, 0.99: 0}
+            series = pd.Series([0])
         quantiles_reformatted_keys = {}
         for quantile, value in quantiles.items():
             reformatted_key = f"p{int(quantile * 100)}"
@@ -360,6 +390,28 @@ def run_token_benchmark(
             print(individual_responses)
             raise e
 
+        # Save to CSV using CSV manager if available
+        if CSVResultsManager:
+            try:
+                csv_manager = CSVResultsManager(results_dir=str(results_dir))
+                test_config = {
+                    "max_num_completed_requests": max_num_completed_requests,
+                    "mean_input_tokens": mean_input_tokens,
+                    "stddev_input_tokens": stddev_input_tokens,
+                    "mean_output_tokens": mean_output_tokens,
+                    "stddev_output_tokens": stddev_output_tokens,
+                    "num_concurrent_requests": num_concurrent_requests,
+                    "timeout": test_timeout_s,
+                    "llm_api": llm_api,
+                    "additional_sampling_params": additional_sampling_params
+                }
+                csv_filename = csv_manager.save_individual_results_csv(
+                    individual_responses, model, "performance", test_config
+                )
+                print(f"✅ CSV results saved: {csv_filename}")
+            except Exception as e:
+                print(f"⚠️  Warning: Could not save CSV results: {e}")
+
 
 args = argparse.ArgumentParser(
     description="Run a token throughput and latency benchmark."
@@ -462,6 +514,11 @@ args.add_argument(
         "name=foo,bar=1. These will be added to the metadata field of the results. "
     ),
 )
+args.add_argument(
+    "--skip-if-cached",
+    action="store_true",
+    help="Skip test if already completed with same configuration"
+)
 
 if __name__ == "__main__":
     env_vars = dict(os.environ)
@@ -474,6 +531,28 @@ if __name__ == "__main__":
         for item in args.metadata.split(","):
             key, value = item.split("=")
             user_metadata[key] = value
+
+    # Check for cached results if requested
+    if args.skip_if_cached and CSVResultsManager:
+        csv_manager = CSVResultsManager(results_dir=args.results_dir)
+        test_config = {
+            "max_num_completed_requests": args.max_num_completed_requests,
+            "mean_input_tokens": args.mean_input_tokens,
+            "stddev_input_tokens": args.stddev_input_tokens,
+            "mean_output_tokens": args.mean_output_tokens,
+            "stddev_output_tokens": args.stddev_output_tokens,
+            "num_concurrent_requests": args.num_concurrent_requests,
+            "timeout": args.timeout,
+            "llm_api": args.llm_api,
+            "additional_sampling_params": args.additional_sampling_params
+        }
+
+        if csv_manager.is_test_completed(args.model, "performance", test_config):
+            print(f"✅ Performance test already completed for {args.model} with same configuration. Skipping...")
+            existing_results = csv_manager.load_existing_results(args.model, "performance")
+            if existing_results is not None:
+                print(f"📊 Found {len(existing_results)} existing results")
+            exit(0)
 
     run_token_benchmark(
         llm_api=args.llm_api,

@@ -1,0 +1,2 @@
+model,test_type,status,duration_s,success
+smollm2:360m,performance,success,18.63,True
